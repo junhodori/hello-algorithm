@@ -1,6 +1,13 @@
 # hello-algorithm 
 각종 알고리즘을 공부하면서 정리한 코드입니다.
 
+## 경우의 수 (Number Of Cases)
+- 조합 (Combination)
+    - N개에서 R개를 선택할 경우 `순서 없는` 모든 경우의 수
+
+- 순열 (Permutation)
+    - N개에서 R개를 선택할 경우 `순서 보장` 되는 모든 경우의 수
+
 ## 탐색 (Search)
 - 선형 탐색법 (Linear Search)
     - `순차적`으로 탐색하는 알고리즘 입니다.
