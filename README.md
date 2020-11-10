@@ -1,5 +1,5 @@
 # hello-algorithm 
-각종 알고리즘을 공부하면서 정리한 코드입니다.
+알고리즘이란 자료구조를 활용해서 어떤 알고리즘으로 짜는가에 대한 문제이다.
 
 ## 경우의 수 (Number Of Cases)
 - 조합 (Combination)

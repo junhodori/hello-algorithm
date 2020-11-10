@@ -3,15 +3,16 @@ package graph_search;
 import graph_search.algorithm.GraphSearchAlgorithm;
 import graph_search.algorithm.impl.Bfs;
 import graph_search.algorithm.impl.Dfs;
+import graph_search.algorithm.impl.Dijkstra;
 
 import java.util.ArrayList;
 
 public class GraphSearch {
     public static void main(String[] args) {
-        int[] vertextList = {0, 1, 2, 3, 4, 5, 6};
+        // 인접 리스트
+        char[] vertextList = {0, 1, 2, 3, 4, 5, 6};
         int[][] edgeList = {{0, 1}, {0, 2}, {1, 0}, {1, 3}, {2, 0}, {2, 4}, {2, 5}, {3, 1}, {4, 2}, {4, 6}, {5, 2}, {6, 4}};
 
-        // 인접 리스트
         ArrayList<ArrayList<Integer>> adjacencyList = new ArrayList<>();
 
         for (int x = 0; x < vertextList.length; x++) {
@@ -36,6 +37,30 @@ public class GraphSearch {
 
         print("output-2", result);
 
+
+        System.out.println("Dijkstra");
+        // 인접 리스트 (다익스트라 알고리즘)
+//        vertextList = new char[] {'A', 'B', 'C', 'D', 'E', 'F'};
+        int[][] matrix = new int[6][6];
+
+        input(matrix, 0, 1, 3);
+        input(matrix, 0, 2, 2);
+        input(matrix, 0, 3, 4);
+        input(matrix, 1, 3, 2);
+        input(matrix, 1, 5, 5);
+        input(matrix, 2, 4, 1);
+        input(matrix, 3, 4, 1);
+        input(matrix, 3, 5, 3);
+        input(matrix, 4, 5, 2);
+
+        printMatrix("input", matrix);
+
+
+        Dijkstra dijkstra = new Dijkstra();
+
+        printArray("output-search-3", dijkstra.search(matrix, 0, 5));
+        System.out.println("output-distance-3 : " + dijkstra.distance(matrix, 0, 5));
+
     }
 
     public static void print(String name, ArrayList<Integer> result) {
@@ -50,5 +75,32 @@ public class GraphSearch {
         }
         System.out.print("]");
         System.out.println();
+    }
+
+    public static void printMatrix(String name, int[][] a) {
+        for (int x = 0; x < a.length; x++) {
+            System.out.print(name + "-" + x + ":");
+            for (int y = 0; y < a.length; y++) {
+                System.out.print("[");
+                System.out.print(a[x][y]);
+                System.out.print("]");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printArray(String name, int[] a) {
+        System.out.print(name + " : ");
+        for (int x = 0; x < a.length; x++) {
+            System.out.print("[");
+            System.out.print(a[x]);
+            System.out.print("]");
+        }
+        System.out.println();
+    }
+
+    public static void input(int[][] adjacencyMatrix, int a, int b, int weight) {
+        adjacencyMatrix[a][b] = weight;
+        adjacencyMatrix[b][a] = weight;
     }
 }
