@@ -1,10 +1,7 @@
 package solution;
 
 public class DynamicProgramming {
-    /**
-     * 동적 계획법
-     * @param args
-     */
+    // 메모리 사이즈
     final static int MEMOIZATION_SIZE = 6;
 
     static int normalCount = 0;
@@ -58,7 +55,7 @@ public class DynamicProgramming {
      * 동적 프로그래밍 알고리즘을 이용한 피보나치 수열 계산 (점화식 추가 버전)
      * 메모리 크기 내에서는 재귀호출을 하지 않고 점화식을 이용해 미리 계산해서 메모리에 저장
      * 메모리 크기를 초과하는 경우에만 재귀호출을 실행하며 이 경우에도 이미 계산된 값이 나오면 메모리에서 읽어서 사용
-     * @param n
+     * @param n : 피보나치 수열 자리수
      * @return
      */
     public static int dpFibonacci2(int n) {
